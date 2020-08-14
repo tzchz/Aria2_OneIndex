@@ -40,7 +40,7 @@ function OneIndex_install(){
     yum install git -y
 	yum update nss curl iptables -y
     mkdir -p /home/wwwroot/OneIndex && cd /home/wwwroot/OneIndex
-	git clone https://github.com/donwa/oneindex.git && mv ./oneindex/* /home/wwwroot/OneIndex
+	git clone https://github.com/tzchz/oneindex.git && mv ./oneindex/* /home/wwwroot/OneIndex
     chmod 777 ./config && chmod 777 ./cache
     if [[ $? -eq 0 ]];then
         echo -e "OneIndex 下载成功"
@@ -51,7 +51,7 @@ function OneIndex_install(){
     fi
 }
 function aria2ng_install(){
-    mkdir -p /home/wwwroot/aria2ng && cd /home/wwwroot/aria2ng && wget https://raw.githubusercontent.com/marisn2017/Aria2_OneIndex/master/aria-ng-0.3.0.zip && unzip aria-ng-0.3.0.zip
+    mkdir -p /home/wwwroot/aria2ng && cd /home/wwwroot/aria2ng && wget https://raw.githubusercontent.com/tzchz/Aria2_OneIndex/master/aria-ng-0.3.0.zip && unzip aria-ng-0.3.0.zip
 	if [[ $? -eq 0 ]];then
         echo -e "AriaNg 下载成功"
         sleep 1
@@ -62,8 +62,8 @@ function aria2ng_install(){
 }
 function nginx_conf_add(){
     rm -rf /etc/nginx/conf.d/default.conf
-    wget -N -P  /etc/nginx/conf.d/ --no-check-certificate "https://raw.githubusercontent.com/marisn2017/Aria2_OneIndex/master/OneIndex.conf"
-    wget -N -P  /etc/nginx/conf.d/ --no-check-certificate "https://raw.githubusercontent.com/marisn2017/Aria2_OneIndex/master/aria2ng.conf"
+    wget -N -P  /etc/nginx/conf.d/ --no-check-certificate "https://raw.githubusercontent.com/tzchz/Aria2_OneIndex/master/OneIndex.conf"
+    wget -N -P  /etc/nginx/conf.d/ --no-check-certificate "https://raw.githubusercontent.com/tzchz/Aria2_OneIndex/master/aria2ng.conf"
 	if [[ $? -eq 0 ]];then
         echo -e "nginx 配置导入成功"
         sleep 1
